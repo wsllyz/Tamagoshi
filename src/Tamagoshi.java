@@ -1,6 +1,5 @@
 package src;
-import utils.Falas;
-
+import src.utils.Falas;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -11,10 +10,10 @@ public class Tamagoshi {
     Falas fala = new Falas();
 
     private String nome;
-    private int idade;
+    private byte idade;
     private int dinheiro;
-    private int energia;
-    private int fome;
+    private byte energia;
+    private byte fome;
 
 
     public Tamagoshi() {
@@ -47,13 +46,13 @@ public class Tamagoshi {
             case 1:
                 this.energia -= 20;
                 this.fome -= 15;
-                int chances = 5;
-                int dinheiroGanho = 50;
-                int numeroSecreto = rd.nextInt(100);
+                byte chances = 5;
+                byte dinheiroGanho = 50;
+                byte numeroSecreto = (byte) rd.nextInt(100);
 
                 while (chances > 0) {
                     System.out.println("Escolha um número: ");
-                    int numeroEscolhido = sc.nextInt();
+                    byte numeroEscolhido = (byte) sc.nextInt();
                     if (numeroEscolhido > numeroSecreto) {
                         chances -= 1;
                         dinheiroGanho -= 5;
@@ -92,7 +91,7 @@ public class Tamagoshi {
     }
 
     public void alimentarTamagoshi() {
-        int comida = rd.nextInt(10);
+        byte comida = (byte) rd.nextInt(10);
         this.fome += comida;
         System.out.println("Seu Tamagoshi comeu "+comida+" de comida! Ele agora está com "+ this.fome +" de fome.");
     }
@@ -102,8 +101,8 @@ public class Tamagoshi {
         // tem um custo predefinido de fome
         this.fome -= 15;
         int energiaSono = rd.nextInt(50);
-        this.energia = energiaSono;
-        System.out.println("Você dormiu e recuperou " +energiaSono+ "de energia. Agora está com: "+this.energia);
+        this.energia = (byte) energiaSono;
+        System.out.println("Você dormiu e recuperou " +energiaSono+ " de energia. Agora está com: "+this.energia);
     }
 
     public void mostrarStatusTamagoshi() {
